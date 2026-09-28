@@ -3,135 +3,107 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="color-scheme" content="dark" />
-        <title>Lesson 4: How do you react to changes? · Nícolas Barbosa</title>
+        <meta name="color-scheme" content="light" />
+        <title>Lesson 4: How do you react to changes? · v3 Neobrutalist</title>
         <link rel="stylesheet" href="reveal/reveal.css" />
         <style>
             /* ============================================================
-     Apple-inspired theme
-     - SF system type, size-specific tracking, tight leading
-     - translucent "materials" (frosted glass) for chrome & cards
-     - spring-like motion, interruptible, reduced-motion aware
-     - restraint: fewer lines, more air, weight-based hierarchy
+     v3 — NEOBRUTALIST
+     - thick black borders, hard offset shadows, flat bright color
+     - chunky type, zero radius, high contrast, raw blocks
      ============================================================ */
-
             :root {
-                --bg: #000000;
-                --label: #f5f5f7;
-                --label-2: rgba(235, 235, 245, 0.6);
-                --label-3: rgba(235, 235, 245, 0.38);
-                --separator: rgba(84, 84, 88, 0.55);
-                --accent: #0a84ff;
-                --accent-2: #66b2ff;
-                --material: rgba(255, 255, 255, 0.06);
-                --material-strong: rgba(255, 255, 255, 0.1);
-                --hairline: rgba(255, 255, 255, 0.12);
-                --hairline-bright: rgba(255, 255, 255, 0.22);
-                --radius: 26px;
-                --blur: 22px;
-
-                --r-background-color: #000000;
-                --r-main-color: #f5f5f7;
-                --r-overlay-element-bg-color: rgba(255, 255, 255, 0.08);
-                --r-overlay-element-fg-color: #f5f5f7;
+                --bg: #fff8e7;
+                --ink: #000000;
+                --paper: #ffffff;
+                --yellow: #ffe500;
+                --blue: #2d5bff;
+                --pink: #ff5ca8;
+                --lime: #b8ff3c;
+                --orange: #ff7a00;
+                --shadow: 8px 8px 0 #000;
+                --shadow-sm: 5px 5px 0 #000;
+                --r-background-color: #fff8e7;
+                --r-main-color: #000000;
+                --r-overlay-element-bg-color: #000000;
+                --r-overlay-element-fg-color: #ffffff;
             }
-
             html,
             body {
                 background-color: var(--bg);
             }
-
             .reveal-viewport {
-                background:
-                    radial-gradient(
-                        120% 80% at 78% -12%,
-                        rgba(10, 132, 255, 0.1),
-                        transparent 60%
-                    ),
-                    radial-gradient(
-                        90% 70% at -10% 108%,
-                        rgba(255, 255, 255, 0.04),
-                        transparent 55%
-                    ),
-                    var(--bg) !important;
+                background: var(--bg) !important;
             }
 
             .reveal {
                 font-family:
-                    -apple-system, BlinkMacSystemFont, "SF Pro Display",
-                    "SF Pro Text", "Helvetica Neue", Helvetica, Arial,
-                    sans-serif;
-                color: var(--label);
-                font-size: 30px;
-                font-weight: 400;
-                -webkit-font-smoothing: antialiased;
-                text-rendering: optimizeLegibility;
+                    "Space Grotesk", ui-monospace, "SFMono-Regular", Menlo,
+                    Consolas, monospace;
+                color: var(--ink);
+                font-size: 28px;
+                font-weight: 600;
             }
             .reveal .slides {
                 text-align: left;
             }
             .reveal .slides section {
                 height: 100%;
-                padding: 0 64px;
+                padding: 0 70px;
                 box-sizing: border-box;
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
             }
-
-            /* Motion: Apple-ish easing, interruptible cross-fades */
+            /* Snappy movement — no soft easing, on brand with the raw look */
             .reveal .slides > section,
             .reveal .slides > section > section {
                 transition-timing-function: cubic-bezier(
-                    0.32,
-                    0.72,
-                    0,
+                    0.2,
+                    0.9,
+                    0.3,
                     1
                 ) !important;
-                transition-duration: 0.6s !important;
+                transition-duration: 0.4s !important;
             }
 
-            /* Typography ---------------------------------------------------- */
             .reveal h1,
             .reveal h2,
             .reveal h3,
             .reveal h4 {
-                color: var(--label);
+                color: var(--ink);
                 text-transform: none;
-                font-weight: 700;
-                line-height: 1.04;
-                letter-spacing: -0.028em; /* negative tracking for large type */
-                margin: 0 0 0.34em 0;
-                font-optical-sizing: auto;
+                font-weight: 800;
+                line-height: 1;
+                letter-spacing: -0.03em;
+                margin: 0 0 0.38em 0;
             }
             .reveal h1 {
                 font-size: 2.7em;
-                letter-spacing: -0.034em;
+                text-transform: uppercase;
             }
             .reveal h2 {
-                font-size: 1.66em;
-                letter-spacing: -0.03em;
+                font-size: 1.55em;
             }
             .reveal h3 {
-                font-size: 0.78em;
-                font-weight: 650;
-                letter-spacing: -0.012em;
-                line-height: 1.18;
+                font-size: 0.64em;
+                font-weight: 800;
+                line-height: 1.15;
             }
             .reveal p {
                 line-height: 1.42;
-                margin: 0.28em 0;
-                letter-spacing: -0.008em;
+                margin: 0.3em 0;
             }
             .reveal strong {
-                color: #fff;
-                font-weight: 650;
+                background: var(--yellow);
+                padding: 0 0.12em;
+                box-shadow: 2px 2px 0 #000;
             }
             .accent {
-                color: var(--accent-2);
+                color: var(--blue);
             }
             .muted {
-                color: var(--label-2);
+                color: #3a3a3a;
             }
             .small {
                 font-size: 0.56em;
@@ -140,37 +112,38 @@
                 font-size: 0.44em;
             }
 
+            /* Kicker -> a black tag */
             .kicker {
                 display: inline-block;
-                font-size: 0.42em;
-                font-weight: 600;
+                font-size: 0.36em;
+                font-weight: 800;
                 letter-spacing: 0.14em;
                 text-transform: uppercase;
-                color: var(--label-2);
-                margin-bottom: 22px;
+                color: #fff;
+                background: #000;
+                padding: 9px 16px;
+                margin-bottom: 24px;
+                transform: rotate(-1deg);
             }
 
-            /* Title slide --------------------------------------------------- */
+            /* Title slide */
             .title-slide h1 {
-                font-size: 3.05em;
-                line-height: 1.02;
+                font-size: 3em;
             }
             .title-slide .rule {
-                width: 96px;
-                height: 4px;
-                border-radius: 3px;
+                width: 140px;
+                height: 10px;
+                background: #000;
                 margin: 30px 0;
-                background: linear-gradient(90deg, var(--accent), transparent);
             }
             .name {
-                font-size: 0.56em;
-                color: var(--label-2);
+                font-size: 0.52em;
+                font-weight: 700;
             }
 
-            /* Layout -------------------------------------------------------- */
             .row {
                 display: flex;
-                gap: 40px;
+                gap: 34px;
                 align-items: center;
             }
             .col {
@@ -178,15 +151,11 @@
                 min-width: 0;
             }
 
-            /* Images — soft, rounded, quiet depth --------------------------- */
+            /* Images: framed like stickers */
             .img-frame {
-                border-radius: var(--radius);
-                overflow: hidden;
-                background: rgba(255, 255, 255, 0.03);
-                border: 1px solid var(--hairline);
-                box-shadow:
-                    0 30px 60px -22px rgba(0, 0, 0, 0.85),
-                    0 2px 10px rgba(0, 0, 0, 0.4);
+                border: 4px solid #000;
+                background: #000;
+                box-shadow: var(--shadow);
             }
             .img-frame img {
                 display: block;
@@ -200,244 +169,232 @@
             .img-tall {
                 height: 540px;
             }
-            .caption {
-                font-size: 0.37em;
-                color: var(--label-3);
-                margin-top: 12px;
+            .reveal .caption {
+                display: inline-block;
+                width: auto;
+                max-width: 100%;
+                font-size: 0.4em;
+                color: #000;
+                background: #fff;
+                border: 3px solid #000;
+                box-shadow: 4px 4px 0 #000;
+                padding: 7px 14px;
+                margin-top: 26px;
+                font-weight: 700;
                 letter-spacing: 0.01em;
+                line-height: 1.25;
+                position: relative;
+                z-index: 1;
             }
 
-            /* Placeholder — a quiet translucent material -------------------- */
             .placeholder {
-                border-radius: var(--radius);
-                background: var(--material);
-                border: 1px solid var(--hairline);
-                backdrop-filter: blur(var(--blur)) saturate(180%);
-                -webkit-backdrop-filter: blur(var(--blur)) saturate(180%);
-                color: var(--label-2);
-                font-size: 0.5em;
+                border: 4px dashed #000;
+                background: var(--lime);
+                box-shadow: var(--shadow);
+                color: #000;
+                font-size: 0.46em;
                 text-align: center;
+                padding: 24px;
                 display: flex;
                 flex-direction: column;
                 gap: 10px;
                 align-items: center;
                 justify-content: center;
-                letter-spacing: 0.01em;
             }
             .placeholder .ph-title {
-                color: var(--label);
-                font-weight: 600;
-                font-size: 1.15em;
-                letter-spacing: -0.01em;
+                font-weight: 800;
+                font-size: 1.2em;
+                letter-spacing: 0.04em;
             }
 
-            /* Cards — frosted glass, weight = hierarchy --------------------- */
+            /* Cards: bright blocks with hard shadow */
             .cards {
                 display: flex;
-                gap: 20px;
-                margin-top: 10px;
+                gap: 22px;
+                margin-top: 16px;
             }
             .card {
                 flex: 1;
-                padding: 30px 26px 28px;
-                border-radius: var(--radius);
-                background: var(--material);
-                border: 1px solid var(--hairline);
-                border-top-color: var(--hairline-bright);
-                backdrop-filter: blur(var(--blur)) saturate(180%);
-                -webkit-backdrop-filter: blur(var(--blur)) saturate(180%);
-                box-shadow: 0 24px 50px -30px rgba(0, 0, 0, 0.9);
+                padding: 26px 22px;
+                background: var(--paper);
+                border: 4px solid #000;
+                box-shadow: var(--shadow);
+            }
+            .card:nth-child(2) {
+                background: var(--yellow);
+            }
+            .card:nth-child(3) {
+                background: var(--lime);
             }
             .card .num {
-                font-size: 1.5em;
-                font-weight: 700;
-                color: var(--accent-2);
-                line-height: 1;
-                letter-spacing: -0.02em;
+                display: inline-block;
+                font-size: 1em;
+                font-weight: 800;
+                color: #fff;
+                background: #000;
+                padding: 4px 12px;
+                line-height: 1.1;
+                box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.25);
             }
             .card h3 {
-                font-size: 0.58em;
-                margin: 0.5em 0 0.28em;
+                font-size: 0.6em;
+                margin: 0.7em 0 0.3em;
+                text-transform: uppercase;
             }
             .card p {
                 font-size: 0.44em;
-                color: var(--label-2);
+                color: #0a0a0a;
                 margin: 0;
                 line-height: 1.4;
             }
             .card.hi {
-                background: linear-gradient(
-                    180deg,
-                    rgba(10, 132, 255, 0.16),
-                    rgba(10, 132, 255, 0.06)
-                );
-                border-color: rgba(10, 132, 255, 0.45);
-                border-top-color: rgba(102, 178, 255, 0.6);
+                background: var(--blue);
+                color: #fff;
+            }
+            .card.hi h3,
+            .card.hi p {
+                color: #fff;
+            }
+            .card.hi .num {
+                background: #fff;
+                color: #000;
             }
 
-            /* Quote --------------------------------------------------------- */
+            /* Quote */
             .quote {
-                font-size: 1.24em;
-                line-height: 1.22;
-                font-weight: 600;
-                color: #fff;
+                font-size: 1.16em;
+                line-height: 1.2;
+                font-weight: 800;
+                color: #000;
+                background: var(--yellow);
+                border: 4px solid #000;
+                box-shadow: var(--shadow);
+                padding: 26px 28px;
                 letter-spacing: -0.02em;
             }
-            .quote::before {
-                content: "\201C";
-                color: var(--accent-2);
-                font-size: 1.1em;
-                margin-right: 0.08em;
-            }
-            .attrib {
+            .reveal .attrib {
                 font-size: 0.4em;
-                color: var(--label-3);
-                margin-top: 16px;
-                letter-spacing: 0.12em;
+                color: #000;
+                margin-top: 22px;
+                font-weight: 700;
                 text-transform: uppercase;
+                letter-spacing: 0.06em;
             }
 
-            /* Timeline ------------------------------------------------------ */
+            /* Timeline */
             .timeline {
                 position: relative;
-                margin-top: 28px;
+                margin-top: 22px;
             }
             .timeline .bar {
                 position: absolute;
-                left: 15px;
-                top: 8px;
-                bottom: 8px;
-                width: 2px;
-                background: var(--separator);
-                border-radius: 2px;
+                left: 17px;
+                top: 6px;
+                bottom: 6px;
+                width: 5px;
+                background: #000;
             }
             .titem {
                 position: relative;
-                padding: 0 0 26px 56px;
+                padding: 0 0 22px 62px;
             }
             .titem::before {
                 content: "";
                 position: absolute;
-                left: 9px;
-                top: 5px;
-                width: 14px;
-                height: 14px;
-                border-radius: 50%;
-                background: var(--accent);
-                box-shadow:
-                    0 0 0 4px rgba(10, 132, 255, 0.18),
-                    0 0 16px rgba(10, 132, 255, 0.5);
+                left: 6px;
+                top: 2px;
+                width: 27px;
+                height: 27px;
+                background: var(--pink);
+                border: 4px solid #000;
             }
             .titem .yr {
-                font-size: 0.38em;
-                color: var(--label-3);
-                font-weight: 600;
-                letter-spacing: 0.14em;
+                display: inline-block;
+                font-size: 0.36em;
+                font-weight: 800;
+                letter-spacing: 0.08em;
                 text-transform: uppercase;
+                background: #000;
+                color: #fff;
+                padding: 3px 10px;
             }
             .titem h3 {
-                font-size: 0.6em;
-                margin: 0.16em 0 0.12em;
+                font-size: 0.58em;
+                margin: 0.35em 0 0.1em;
             }
             .titem p {
-                font-size: 0.44em;
-                color: var(--label-2);
+                font-size: 0.42em;
+                color: #2a2a2a;
                 margin: 0;
-                line-height: 1.38;
+                line-height: 1.35;
             }
 
-            /* Chips --------------------------------------------------------- */
+            /* Chips */
             .chips {
                 display: flex;
-                gap: 12px;
+                gap: 14px;
                 flex-wrap: wrap;
-                margin-top: 20px;
+                margin-top: 22px;
             }
             .chip {
-                font-size: 0.44em;
-                padding: 11px 20px;
-                border-radius: 999px;
-                background: var(--material);
-                border: 1px solid var(--hairline);
-                backdrop-filter: blur(14px) saturate(160%);
-                -webkit-backdrop-filter: blur(14px) saturate(160%);
-                color: var(--label);
+                font-size: 0.42em;
+                font-weight: 700;
+                padding: 10px 16px;
+                border: 3px solid #000;
+                box-shadow: var(--shadow-sm);
+                background: #fff;
+            }
+            .chip:nth-child(1) {
+                background: var(--yellow);
+            }
+            .chip:nth-child(2) {
+                background: var(--lime);
+            }
+            .chip:nth-child(3) {
+                background: var(--pink);
             }
             .chip b {
-                color: var(--accent-2);
-                font-weight: 650;
+                font-weight: 800;
             }
 
-            /* Chrome — translucent floating overlays ------------------------ */
+            /* Chrome */
             .reveal .slide-number {
-                background: rgba(255, 255, 255, 0.06);
-                backdrop-filter: blur(14px) saturate(160%);
-                -webkit-backdrop-filter: blur(14px) saturate(160%);
-                border: 1px solid var(--hairline);
-                border-radius: 999px;
-                color: var(--label-2);
-                font-size: 14px;
-                font-weight: 600;
-                letter-spacing: 0.04em;
+                background: #000;
+                color: #fff;
+                border: 3px solid #000;
                 padding: 5px 12px;
+                font-size: 14px;
+                font-weight: 800;
+                box-shadow: var(--shadow-sm);
             }
             .reveal .progress {
-                color: var(--accent);
-                height: 3px;
-                background: rgba(255, 255, 255, 0.06);
+                color: #000;
+                height: 7px;
+                background: rgba(0, 0, 0, 0.12);
             }
             .reveal .controls {
-                color: var(--accent-2);
-            }
-            .reveal .controls button {
-                opacity: 0.9;
+                color: #000;
             }
 
-            /* Accessibility — gentler, non-vestibular equivalents ----------- */
             @media (prefers-reduced-motion: reduce) {
                 .reveal .slides > section,
                 .reveal .slides > section > section {
                     transition-duration: 0.2s !important;
                 }
             }
-            @media (prefers-reduced-transparency: reduce) {
-                .card,
-                .placeholder,
-                .chip,
-                .reveal .slide-number {
-                    background: rgba(28, 28, 30, 0.96);
-                    backdrop-filter: none;
-                    -webkit-backdrop-filter: none;
-                }
-                .reveal-viewport {
-                    background: var(--bg) !important;
-                }
-            }
-            @media (prefers-contrast: more) {
-                .card,
-                .placeholder,
-                .chip {
-                    background: rgba(20, 20, 22, 0.98);
-                    border-color: rgba(255, 255, 255, 0.5);
-                }
-                .muted,
-                .caption,
-                .titem p {
-                    color: rgba(235, 235, 245, 0.82);
-                }
-            }
 
             /* Soundtrack thread (discreet) */
             .reveal .song {
                 font-size: 0.3em;
-                color: var(--label-3);
+                font-weight: 600;
+                color: #8a8072;
                 margin-top: 16px;
                 letter-spacing: 0.02em;
                 opacity: 0.9;
             }
             .reveal .song b {
-                color: var(--label-3);
-                font-weight: 600;
+                color: #6f6657;
+                font-weight: 700;
             }
             .reveal .song i {
                 font-style: normal;
@@ -447,11 +404,9 @@
     <body>
         <div class="reveal">
             <div class="slides">
-                <!-- 1. TITLE -->
                 <section class="title-slide">
                     <span class="kicker"
-                        >Coaching &amp; Public Speaking in Practice · Lesson
-                        4</span
+                        >Coaching &amp; Public Speaking · Lesson 4</span
                     >
                     <h1>
                         How do you react<br />to
@@ -461,7 +416,7 @@
                     <p class="name">
                         Nícolas Marques de Moura Barbosa · Intermediate 1
                     </p>
-                    <p class="small muted" style="margin-top: 14px">
+                    <p class="small muted" style="margin-top: 10px">
                         A story about leaving home, losing my bike, and learning
                         to choose change.
                     </p>
@@ -470,19 +425,15 @@
                         (1968) · <i>"Please allow me to introduce myself."</i>
                     </p>
                     <aside class="notes">
-                        HOOK (open with the story, not the summary): "When I was
-                        thirteen, I was standing in the living room of the only
-                        house I knew, and my parents told me we were moving two
-                        thousand kilometers away. I did not choose that change.
-                        That change chose me." (pause) "Today I'm going to tell
-                        you that story, and by the end I'll answer the question:
-                        How do you react to changes?" Structure I'll follow: my
-                        background → what a successful change is → one drastic
-                        change in my career → my conclusion.
+                        HOOK: "When I was thirteen, I was standing in the living
+                        room of the only house I knew, and my parents told me we
+                        were moving two thousand kilometers away. I did not
+                        choose that change. That change chose me." (pause)
+                        "Today I'll tell you that story and answer: How do you
+                        react to changes?"
                     </aside>
                 </section>
 
-                <!-- 2. OPENING QUOTE -->
                 <section>
                     <span class="kicker">Opening thought</span>
                     <div class="row">
@@ -505,14 +456,12 @@
                         </div>
                     </div>
                     <aside class="notes">
-                        "Heraclitus said that everything flows and nothing stays
-                        the same. That's exactly the starting point of my
-                        lesson: change is not an exception in life: it is the
-                        rule."
+                        BEAT: "Heraclitus said everything flows and nothing
+                        stays the same. Change is not an exception in life: it
+                        is the rule."
                     </aside>
                 </section>
 
-                <!-- 3. PART 1a -->
                 <section>
                     <span class="kicker">Part 1 · Talk about myself</span>
                     <h2>
@@ -525,7 +474,7 @@
                         family moved to a small, cold mountain town in São Paulo
                         — the highest city in Brazil.
                     </p>
-                    <div class="row" style="margin-top: 14px">
+                    <div class="row" style="margin-top: 16px">
                         <div class="col">
                             <div class="img-frame img-fill">
                                 <img
@@ -552,26 +501,21 @@
                         </div>
                     </div>
                     <aside class="notes">
-                        BEAT 1: Ordinary world + the call: "Before that day, my
-                        life was simple and predictable. I was born in
-                        Fortaleza, in the Northeast, and I used to live there
-                        until I was about thirteen. Then my parents' jobs
-                        changed everything: my family moved to Campos do Jordão,
-                        a small and cold mountain town. It was a huge contrast.
-                        That was my first big change, and honestly I did not
-                        choose it. If the Northeast taught me to be open, the
-                        mountains taught me to adapt."
+                        BEAT: Ordinary world + the call: "I was born in
+                        Fortaleza and I used to live there until I was about
+                        thirteen. Then family moved to Campos do Jordão, a small
+                        cold mountain town. It was a huge contrast. That was my
+                        first big change, and I did not choose it."
                     </aside>
                 </section>
 
-                <!-- 4. PART 1b -->
                 <section>
                     <span class="kicker">Part 1 · My teenage years</span>
                     <h2>
                         Volleyball, my bike,
                         <span class="accent">and one accident</span>
                     </h2>
-                    <div class="row" style="margin-top: 12px">
+                    <div class="row" style="margin-top: 10px">
                         <div class="col" style="flex: 1.25">
                             <div class="img-frame img-fill">
                                 <img
@@ -581,7 +525,6 @@
                             </div>
                             <p class="caption">
                                 I used to play volleyball for my school team.
-                                Source: Wikimedia Commons.
                             </p>
                         </div>
                         <div class="col">
@@ -596,24 +539,20 @@
                             </p>
                         </div>
                     </div>
-                    <p class="small" style="margin-top: 16px">
+                    <p class="small" style="margin-top: 14px">
                         At 21, a bike accident, two days before my birthday. The
                         doctors told me I <strong>must</strong> stop riding.
                     </p>
                     <aside class="notes">
-                        BEAT 2: Inciting incident (the moment I lost control):
-                        "As a teenager I used to play volleyball for my school
-                        team and I used to ride my bike almost every day. That
-                        was my freedom. Then, when I was twenty-one, two days
-                        before my birthday, I had a bike accident, and the
-                        doctors told me I must stop riding. That accident taught
-                        me the hard truth of this lesson: some changes arrive
-                        without permission. The only thing you control is how
-                        you react."
+                        BEAT: Inciting incident: "I used to play volleyball and
+                        ride my bike almost every day. That was my freedom.
+                        Then, at twenty-one, two days before my birthday, I had
+                        a bike accident and the doctors told me I must stop
+                        riding. Some changes arrive without permission. You only
+                        control how you react."
                     </aside>
                 </section>
 
-                <!-- 5. PART 1c -->
                 <section>
                     <span class="kicker">Part 1 · Today and my plans</span>
                     <h2>Where I am <span class="accent">now</span></h2>
@@ -632,18 +571,15 @@
                         </div>
                         <div class="col">
                             <p class="small">
-                                <span class="accent">■</span>&nbsp; Senior
-                                Developer at <strong>B3</strong>, the Brazilian
-                                stock exchange
+                                Senior Developer at <strong>B3</strong>, the
+                                Brazilian stock exchange
                             </p>
                             <p class="small">
-                                <span class="accent">■</span>&nbsp; I go to São
-                                Paulo almost every week, with long commutes
-                                (hybrid routine)
+                                I go to São Paulo almost every week, with long
+                                commutes (hybrid routine)
                             </p>
                             <p class="small">
-                                <span class="accent">■</span>&nbsp; Studying
-                                English &amp; building better habits
+                                Studying English &amp; building better habits
                             </p>
                             <div class="chips">
                                 <span class="chip"
@@ -659,16 +595,13 @@
                         </div>
                     </div>
                     <aside class="notes">
-                        "Today I live in Taubaté and I work as a Senior
-                        Developer at B3, the stock exchange. I go to São Paulo
-                        almost every week. On a normal day I wake up, I work,
-                        and then I watch something to relax. In the next few
-                        years I will finish paying my house, I will improve my
-                        English, and I will start a postgraduate program."
+                        "Today I live in Taubaté and work as a Senior Developer
+                        at B3. I go to São Paulo almost every week. In the next
+                        few years I will finish paying my house, improve my
+                        English, and start a postgraduate program."
                     </aside>
                 </section>
 
-                <!-- 6. PART 2a -->
                 <section>
                     <span class="kicker"
                         >Part 2 · Define a successful change</span
@@ -689,9 +622,7 @@
                         <div class="card">
                             <div class="num">02</div>
                             <h3>Anxiety</h3>
-                            <p>
-                                We want quick results and we want certainty now.
-                            </p>
+                            <p>We want quick results and certainty now.</p>
                         </div>
                         <div class="card">
                             <div class="num">03</div>
@@ -708,15 +639,14 @@
                         </div>
                     </div>
                     <aside class="notes">
-                        "In my opinion, most people feel fear, anxiety and
-                        insecurity when something new begins. In my own case, I
-                        usually feel doubts: I ask myself if I am making the
-                        right decision, even when I already know the answer. I
-                        might feel nervous, but I can still move forward."
+                        "Most people feel fear, anxiety and insecurity when
+                        something new begins. In my case, I usually feel doubts:
+                        I ask myself if I am making the right decision, even
+                        when I already know the answer. I might feel nervous,
+                        but I can still move forward."
                     </aside>
                 </section>
 
-                <!-- 7. PART 2b -->
                 <section>
                     <span class="kicker">Part 2 · Emotions matter</span>
                     <h2>Emotions are <span class="accent">data</span></h2>
@@ -731,7 +661,7 @@
                                 If you feel something <strong>good</strong>, it
                                 is the opposite.
                             </p>
-                            <p class="small muted" style="margin-top: 14px">
+                            <p class="small muted" style="margin-top: 12px">
                                 So emotions should not be ignored, they
                                 <strong>must</strong> be understood. A change
                                 that goes against our emotions usually
@@ -741,7 +671,7 @@
                         <div class="col">
                             <div
                                 style="
-                                    height: 480px;
+                                    height: 470px;
                                     display: flex;
                                     align-items: center;
                                 "
@@ -759,72 +689,64 @@
                         </div>
                     </div>
                     <aside class="notes">
-                        "I believe emotions are real data about us. If you feel
-                        something bad about a change, that probably means the
-                        change is not something you really want to happen, and
-                        the opposite is also true. So emotions should not be
-                        ignored. They must be understood, because a change that
-                        goes against our emotions usually cannot last long."
+                        "Emotions are real data. If you feel something bad about
+                        a change, it probably means it is not something you
+                        really want, and the opposite is also true. Emotions
+                        should not be ignored. They must be understood."
                     </aside>
                 </section>
 
-                <!-- 8. PART 2c -->
                 <section>
                     <span class="kicker">Part 2 · My definition</span>
                     <h2>
                         What is a <span class="accent">successful change</span>?
                     </h2>
-                    <div class="cards" style="flex-wrap: wrap; row-gap: 20px">
-                        <div class="card" style="flex: 1 1 40%">
+                    <div class="cards" style="flex-wrap: wrap; row-gap: 22px">
+                        <div class="card" style="flex: 1 1 42%">
                             <div class="num">1</div>
                             <h3>It was concluded</h3>
                             <p>What was proposed actually happened.</p>
                         </div>
-                        <div class="card" style="flex: 1 1 40%">
+                        <div class="card" style="flex: 1 1 42%">
                             <div class="num">2</div>
                             <h3>I adapted well</h3>
                             <p>The new situation became natural.</p>
                         </div>
-                        <div class="card" style="flex: 1 1 40%">
+                        <div class="card" style="flex: 1 1 42%">
                             <div class="num">3</div>
                             <h3>The metrics held</h3>
                             <p>They showed that I did not regress.</p>
                         </div>
-                        <div class="card" style="flex: 1 1 40%">
+                        <div class="card" style="flex: 1 1 42%">
                             <div class="num">4</div>
                             <h3>It is marked done</h3>
                             <p>I can close the chapter with confidence.</p>
                         </div>
                     </div>
-                    <p class="small muted" style="margin-top: 20px">
-                        Also: change only happens when it is
+                    <p class="small" style="margin-top: 12px">
+                        Also: change happens when it is
                         <strong>imposed</strong> on you or when you
-                        <strong>want</strong> to reach a new place, because we
-                        always look for the easiest path. But if we never
+                        <strong>want</strong> a new place. But if we never
                         change, we never grow.
                     </p>
                     <aside class="notes">
-                        "For me, a successful change is when what was proposed
-                        was concluded, when I adapted well, when the metrics
-                        showed that I did not regress, and when I can finally
-                        mark the change as concluded. And I should be honest: I
-                        don't think change is always necessary. It happens when
-                        it is imposed on you, or when you really want to reach a
-                        new place. But there is one real reason to change: not
-                        to stagnate."
+                        "A successful change is when what was proposed was
+                        concluded, when I adapted well, when the metrics held,
+                        and when I can mark it as done. Change happens when it
+                        is imposed, or when you want a new place. There is one
+                        real reason to change: not to stagnate."
                     </aside>
                 </section>
 
-                <!-- 9. PART 3 -->
                 <section>
                     <span class="kicker">Part 3 · A drastic change</span>
                     <h2>
                         My biggest change was
                         <span class="accent">professional</span>
                     </h2>
-                    <div class="timeline" style="margin-top: 12px">
+                    <div class="timeline" style="margin-top: 14px">
                         <div class="bar"></div>
-                        <div class="titem" style="padding-bottom: 14px">
+                        <div class="titem" style="padding-bottom: 12px">
                             <div class="yr">2018 – 2019</div>
                             <h3>Apprentice at Minalba</h3>
                             <p>
@@ -832,15 +754,15 @@
                                 IT at IFSP and already loved programming.
                             </p>
                         </div>
-                        <div class="titem" style="padding-bottom: 14px">
+                        <div class="titem" style="padding-bottom: 12px">
                             <div class="yr">2021</div>
                             <h3>Developer at PontoTel</h3>
                             <p>
-                                I was growing step by step, Junior II → Junior
-                                IV → mid-level. But comfort became the problem.
+                                Growing step by step, Junior II → Junior IV →
+                                mid-level. But comfort became the problem.
                             </p>
                         </div>
-                        <div class="titem" style="padding-bottom: 14px">
+                        <div class="titem" style="padding-bottom: 12px">
                             <div class="yr">2025</div>
                             <h3>Senior Developer at BRQ</h3>
                             <p>
@@ -849,7 +771,7 @@
                                 companies.
                             </p>
                         </div>
-                        <div class="titem" style="padding-bottom: 14px">
+                        <div class="titem" style="padding-bottom: 12px">
                             <div class="yr">Today · Hybrid</div>
                             <h3>Senior Developer at B3</h3>
                             <p>
@@ -862,57 +784,45 @@
                         style="
                             display: flex;
                             justify-content: center;
-                            margin-top: 10px;
+                            margin-top: 14px;
                         "
                     >
                         <img
                             src="img/career.png"
                             alt="My career evolution, from apprentice to B3"
                             style="
-                                height: 86px;
+                                height: 84px;
                                 width: auto;
                                 background: #fff;
-                                border-radius: 14px;
+                                border: 4px solid #000;
+                                box-shadow: 5px 5px 0 #000;
                                 padding: 8px 14px;
                             "
                         />
                     </div>
-                    <p class="small" style="margin-top: 12px">
-                        During the transition I was feeling two things at once:
-                        <strong>apprehension and motivation</strong>. There is
-                        always insecurity when you start something new, but I
-                        could not stay still.
+                    <p class="small" style="margin-top: 10px">
+                        I was feeling two things at once:
+                        <strong>apprehension and motivation</strong>. Insecurity
+                        always comes with something new, but I could not stay
+                        still.
                     </p>
                     <aside class="notes">
-                        BEAT 3: Conflict and turning point (the story climax):
-                        "My most drastic change was professional. First I was an
-                        apprentice at Minalba. Then, in 2021, I moved into the
-                        tech market at PontoTel, growing step by step, but I
-                        felt I had reached a ceiling. I was comfortable, and
-                        comfort was exactly the problem. So, in 2025, I took the
-                        leap: I left a stable job and accepted a Senior position
-                        at BRQ, and today I am at B3, where my work can impact
-                        millions. Why? Because my focus was always better
-                        opportunities and bigger companies. During the
-                        transition I was feeling apprehension and motivation at
-                        the same time. There is always insecurity when you start
-                        something new, but I could not stay still."
+                        BEAT: Conflict and turning point: "My most drastic
+                        change was professional. Apprentice at Minalba →
+                        developer at PontoTel → I felt I had reached a ceiling →
+                        in 2025 I left a stable job for BRQ → today I am at B3,
+                        where my work can impact millions. Apprehension and
+                        motivation at the same time, but I could not stay
+                        still."
                     </aside>
                 </section>
 
-                <!-- 10. PART 4 -->
                 <section>
                     <span class="kicker">Part 4 · Conclusion</span>
                     <h2>So, how do I react to changes?</h2>
                     <div class="row">
                         <div class="col" style="flex: 1.15">
-                            <p
-                                style="
-                                    font-size: 0.72em;
-                                    font-weight: 650;
-                                    color: #fff;
-                                "
-                            >
+                            <p style="font-size: 0.72em; font-weight: 800">
                                 Positively, although with doubts and insecurity
                                 at the beginning.
                             </p>
@@ -926,7 +836,7 @@
                             </p>
                         </div>
                         <div class="col">
-                            <div class="img-frame" style="height: 400px">
+                            <div class="img-frame" style="height: 410px">
                                 <img
                                     src="img/b3-bovespa.jpg"
                                     alt="B3, Brazilian stock exchange"
@@ -939,51 +849,38 @@
                         </div>
                     </div>
                     <aside class="notes">
-                        BEAT 4: Resolution + answer: "Am I currently changing
-                        anything? Yes: I am adapting to B3, I am improving my
-                        English, and I am creating better habits. In the next
-                        few years I will finish paying my house and start a
-                        postgraduate. Based on everything I have lived, I react
-                        to changes positively, although with doubts and
-                        insecurity at the beginning, because a change is only
-                        truly successful when the goal is concluded and the
-                        metrics show that I did not regress. Looking back at the
-                        boy who did not want to leave Fortaleza, I see that the
-                        change I feared the most gave me the most. I should not
-                        wait for change to be imposed on me. I can choose it,
-                        and I will keep choosing it, because not changing means
-                        not growing."
+                        BEAT: Resolution + answer: "I am adapting to B3,
+                        improving my English, creating better habits. I will
+                        finish paying my house and start a postgraduate. I react
+                        to changes positively, with doubts at the beginning,
+                        because a change is only truly successful when the goal
+                        is concluded and the metrics show that I did not
+                        regress. I can choose change, and I will keep choosing
+                        it."
                     </aside>
                 </section>
 
-                <!-- 11. CLOSING -->
                 <section class="title-slide">
                     <span class="kicker">Closing</span>
-                    <p class="quote" style="font-size: 0.92em">
+                    <p class="quote" style="font-size: 0.9em">
                         All changes, even the most longed for, have their
                         melancholy; for what we leave behind us is a part of
                         ourselves.
                     </p>
                     <p class="attrib">Anatole France</p>
                     <div class="rule"></div>
-                    <h2 style="font-size: 1.15em">
+                    <h2 style="font-size: 1.1em">
                         Thank you! <span class="accent">Questions?</span>
                     </h2>
                     <p class="small muted">
                         Nícolas Marques de Moura Barbosa · Intermediate 1
                     </p>
                     <aside class="notes">
-                        CLOSING + CALLBACK (return to the opening image): "I
-                        started this talk trapped in a living room, afraid of
-                        leaving everything behind. Today I can tell you that the
-                        change I feared the most gave me the most. So, how do I
-                        react to changes? Positively, with doubts at first, but
-                        always moving forward, because not changing means not
-                        growing." (then the Anatole France line) "Every change
-                        has some sadness, because what we leave behind is part
-                        of who we are. But every time I crossed a river of
+                        CALLBACK: "I started trapped in a living room, afraid of
+                        leaving everything behind. Today the change I feared the
+                        most gave me the most. Every time I crossed a river of
                         change, I found a better version of myself on the other
-                        side. Thank you, I'm happy to answer your questions."
+                        side. Thank you, questions?"
                     </aside>
                 </section>
             </div>
@@ -1001,9 +898,9 @@
                 controls: true,
                 progress: true,
                 slideNumber: "c/t",
-                transition: "fade",
-                transitionSpeed: "default",
-                backgroundTransition: "fade",
+                transition: "slide",
+                transitionSpeed: "fast",
+                backgroundTransition: "none",
                 plugins: [RevealNotes],
             });
         </script>
